@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+
+<h1>Photo Feed</h1>
+
+<div id="option">
+	<% if(typeof user != 'undefined'){ %>
+	  Hooray <%= user.name %>, you are logged in!
+	<% } %>
+
+	<% if(typeof user != 'undefined'){ %>
+	  <a href="<%= req.baseUrl +  "/signout" %>">Uitloggen</a>
+	<% } %>
+
+	<% if(typeof user === 'undefined'){ %>
+	  Hooray you are not logged in!
+	<% } %>
+
+	<% if(typeof user === 'undefined'){ %>
+		<a href="<%= req.baseUrl +  "/signup" %>">Registreren</a>
+	<% } %>
+
+	<% if(typeof user === 'undefined'){ %>
+		<a href="<%= req.baseUrl +  "/login" %>">Inloggen</a>
+	<% } %>
+
+	<a href="<%= req.baseUrl + "/upload" %>">Uploaden</a>
+</div>
+
+<div id="feed">
+	<ul>
+	  <% files.forEach(function(file){ %>
+	    <a href="<%= req.baseUrl + "/download/" + file %>"><li><img src="<%= req.baseUrl + "/download/" + file %>"></li></a>
+	  <% }) %>
+	</ul>
+</div>
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+<% if(error){ %>
+  <%= error %>
+<% } %>
+
+<h1>Login</h1>
+
+<form action="<%= req.baseUrl + "/login" %>" method="post">
+  <input type="text" name="email" value="">
+  <input type="password" name="password" value="">
+  <button>Login!</button>
+</form>
+
+<a href="<%= req.baseUrl +  "/signup" %>">Registreren</a>
+
+<% include ../partials/footer %>

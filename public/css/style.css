@@ -1,0 +1,32 @@
+/*body{
+	color: green;
+}*/
+
+ul img{
+	max-width: 200px;
+	max-height: 200px;
+}
+
+ul{
+	list-style-type: none;
+	/*max-width: 100%;*/
+}
+
+ul li{
+	float: left;
+	border: 2px solid black;
+	margin:  10px;
+	width: 200px;
+	height: 200px;
+}
+
+#foto{
+	max-width: 500px;
+	max-height: 500px;
+}
+
+#option{
+	position: fixed;
+	right: 10px;
+	top: 10px;
+}
