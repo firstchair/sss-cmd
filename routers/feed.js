@@ -46,10 +46,6 @@ router.get("/login", function(req, res){
   res.render("feed/login", data);
 })
 
-router.get("/welcome", function(req, res, next){
-  res.render("feed/welcome");
-});
-
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -57,29 +53,23 @@ var connection = mysql.createConnection({
   database: 'sss-final'
 });
 
-var queryString = 'SELECT * FROM photos';
-
-connection.query(queryString, function(err, rows, fields) {
-    photos = [];
-    if(err){ next(err); }
-
-    for (var i in rows) {
-        photos.push(rows);
-        // console.log("Photo's: ", rows[i]);
-        console.log("Photo's: ", photos);
-    }
-});
 
 router.get("/photo/:filename", function(req, res){
   var filePath = filesPath + req.params.filename;
-  fs.exists(filePath, function (exists) {
-    if(exists){
-      // res.sendFile(req.params.filename, {root : filesPath});
-      res.render("feed/photo");
-    } else {
-      res.send("No such file: " + req.params.filename);
-    }
-  });
+  var filename = req.params.filename,
+ photoCaption,
+ photoId,
+ comments;
+
+ connection.query('SELECT comment, created_at FROM comments WHERE photo_id = \'' + filename + '\'', function (err, match) {
+ comments = match;
+ console.log(comments);
+
+ res.render('feed/photo',{
+ comments: comments
+ });
+
+ });
 });
 
 router.get("/file/:filename", function(req, res){
@@ -99,6 +89,23 @@ router.get("/upload", function(req, res){
   } else {
   res.render("feed/upload");
   }
+});
+
+router.post("/comment", function(req, res){
+      var date = new Date();
+      var photofile = req.body.photo_id;
+
+      req.getConnection(function(err, connection){
+        if(err){ next(err); }
+        connection.query("INSERT INTO comments (comment, photo_id, created_at) VALUES (?)", [[req.body.comment, req.body.photo_id, date]], function(err){
+        if(err){ err; }
+    });
+        });
+
+      res.redirect('/feed/photo/' + photofile);
+
+  
+
 });
 
 router.post("/upload", function(req, res){

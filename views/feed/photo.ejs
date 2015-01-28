@@ -4,8 +4,16 @@
 
 <img class="photo" src="<%= req.baseUrl + "/file/" + req.params.filename %>">
 
+<ol>
+ <% comments.forEach(function (element) { %>
+ <li><%= (element.comment) %> <%= (element.created_at) %></li>
+ <% }); %>
+
+</ol>
+
 <form id="msform" action="<%= req.baseUrl + "/comment" %>" method="post" enctype="multipart/form-data">
   <input type="text" name="comment" value="">
+  <input type="text" name="photo_id" value="<%=req.params.filename%>" hidden>
   <button class="button">Plaats reactie</button>
 </form>
 </div>
