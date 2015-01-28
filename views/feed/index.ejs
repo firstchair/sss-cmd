@@ -1,38 +1,46 @@
 <% include ../partials/header %>
+   
 
-<h1>Photo Feed</h1>
-
-<div id="option">
-	<% if(typeof user != 'undefined'){ %>
-	  Hooray <%= user.name %>, you are logged in!
-	<% } %>
-
-	<% if(typeof user != 'undefined'){ %>
-	  <a href="<%= req.baseUrl +  "/signout" %>">Uitloggen</a>
-	<% } %>
-
-	<% if(typeof user === 'undefined'){ %>
-	  Hooray you are not logged in!
-	<% } %>
-
-	<% if(typeof user === 'undefined'){ %>
-		<a href="<%= req.baseUrl +  "/signup" %>">Registreren</a>
-	<% } %>
-
-	<% if(typeof user === 'undefined'){ %>
-		<a href="<%= req.baseUrl +  "/login" %>">Inloggen</a>
-	<% } %>
-
-	<a href="<%= req.baseUrl + "/upload" %>">Uploaden</a>
-</div>
-
-<div id="feed">
-	<ul>
+<div id="main" role="main">
+      <ul id="tiles">
 	  <% files.forEach(function(file){ %>
-	    <a href="<%= req.baseUrl + "/download/" + file %>"><li><img src="<%= req.baseUrl + "/download/" + file %>"></li></a>
+	    <a href="<%= req.baseUrl + "/photo/" + file %>"><li id="items"><img src="<%= req.baseUrl + "/file/" + file %>" class="max"></li></a>
 	  <% }) %>
 	</ul>
+
+    </div>
 </div>
+
+  <script type="text/javascript">
+setTimeout(function() {
+      // Do something after 5 seconds
+
+    (function ($){
+      var handler = $('#tiles li');
+
+      handler.wookmark({
+          // Prepare layout options.
+          autoResize: true, // This will auto-update the layout when the browser window is resized.
+          container: $('#main'), // Optional, used for some extra CSS styling
+          offset: 5, // Optional, the distance between grid items
+          outerOffset: 10, // Optional, the distance to the containers border
+          itemWidth: 210 // Optional, the width of a grid item
+      });
+
+      // Capture clicks on grid items.
+      handler.click(function(){
+        // Randomize the height of the clicked item.
+        var newHeight = $('img', this).height() + Math.round(Math.random() * 300 + 30);
+        $(this).css('height', newHeight+'px');
+
+        // Update the layout.
+        handler.wookmark();
+      });
+    })(jQuery);
+ 
+  }, 500);
+  </script>
+
 
 
 <% include ../partials/footer %>

@@ -1,17 +1,22 @@
 <% include ../partials/header %>
-
-<% if(error){ %>
-  <%= error %>
-<% } %>
-
+<div id="bg2"></div>
+<div id="register">
 <h1>Login</h1>
 
-<form action="<%= req.baseUrl + "/login" %>" method="post">
-  <input type="text" name="email" value="">
-  <input type="password" name="password" value="">
-  <button>Login!</button>
+<form id="msform" action="<%= req.baseUrl + "/login" %>" method="post">
+ <h1>Name</h1><input type="text" name="email" value="">
+   <h1>Password</h1><input type="password" name="password" value="">
+  <button class="buttonwhite">Login!</button>
+  <p>Make sure you are logged in if you want to upload photos.<p>
 </form>
 
-<a href="<%= req.baseUrl +  "/signup" %>">Registreren</a>
+<div class="ctr">
+<% if(error){ %>
+  <h1 id="error"><%= error %>
+<% } %></h1>
+<a href="/feed/signup"><button class="buttonwhite2">Register</button></a>
+</div>
+</div>
+
 
 <% include ../partials/footer %>

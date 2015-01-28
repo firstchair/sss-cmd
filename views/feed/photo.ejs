@@ -1,4 +1,11 @@
+<% include ../partials/header %>
+<div id="frame">
+<a href="<%= req.baseUrl %>"><i class="fa fa-arrow-circle-left"></i> Back</a>
 
+<img class="photo" src="<%= req.baseUrl + "/file/" + req.params.filename %>">
 
-<h1>Photo</h1>
-
+<form id="msform" action="<%= req.baseUrl + "/comment" %>" method="post" enctype="multipart/form-data">
+  <input type="text" name="comment" value="">
+  <button class="button">Plaats reactie</button>
+</form>
+</div>

@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 var signupRouter = require('./user_signup');
 var filesPath = __dirname + "/../files/";
+var mysql = require('mysql');
 
 router.use("/signup", signupRouter);
 
@@ -49,12 +50,43 @@ router.get("/welcome", function(req, res, next){
   res.render("feed/welcome");
 });
 
-router.get("/download/:filename", function(req, res){
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'sss-final'
+});
+
+var queryString = 'SELECT * FROM photos';
+
+connection.query(queryString, function(err, rows, fields) {
+    photos = [];
+    if(err){ next(err); }
+
+    for (var i in rows) {
+        photos.push(rows);
+        // console.log("Photo's: ", rows[i]);
+        console.log("Photo's: ", photos);
+    }
+});
+
+router.get("/photo/:filename", function(req, res){
   var filePath = filesPath + req.params.filename;
   fs.exists(filePath, function (exists) {
     if(exists){
+      // res.sendFile(req.params.filename, {root : filesPath});
+      res.render("feed/photo");
+    } else {
+      res.send("No such file: " + req.params.filename);
+    }
+  });
+});
+
+router.get("/file/:filename", function(req, res){
+  var filePath2 = filesPath + req.params.filename;
+  fs.exists(filePath2, function (exists) {
+    if(exists){
       res.sendFile(req.params.filename, {root : filesPath});
-      res.render("feed/photo")
     } else {
       res.send("No such file: " + req.params.filename);
     }
