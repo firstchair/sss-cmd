@@ -5,15 +5,15 @@
 <form id="msform" action="<%= req.baseUrl + "/" %>" method="post">
 <div>
     <label for="name"><h1>Username</h1></label>
-    <input type="text" id="name" name="name" value="">
+    <input type="text" id="name" name="name" value="" required>
   </div>
   <div>
     <label for="email"><h1>Email</h1></label>
-    <input type="text" id="email" name="email" value="">
+    <input type="email" id="email" name="email" value="" required>
   </div>
   <div>
     <label for="password"><h1>Password</h1></label>
-    <input type="password" id="password" name="password" value="">
+    <input type="password" id="password" name="password" value="" required>
   </div>
 
   <button class="buttonwhite">Sign up!</button>

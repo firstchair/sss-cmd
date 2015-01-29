@@ -1,19 +1,14 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
 <% include ../partials/header %>
 <div id="register">
-<h1>Upload Photo</h1>
-
-<form id="msform" action="<%= req.baseUrl + "/upload" %>" method="post" enctype="multipart/form-data">
-  <input type="file" onchange="readURL(this);" name="upload" value="">
-  <p>Name</p>
-  <img src="" id="foto">
-  <input type="text" name="caption" value="">
-  <button class="button">Upload</button>
-</form>
-
-
+	<h1>Upload Photo</h1>
+	<form id="msform" action="<%= req.baseUrl + "/upload" %>" method="post" enctype="multipart/form-data">
+	  <input type="file" onchange="readURL(this);" name="upload" value=""  accept=".jpg, .png, .gif">
+	  <p>Name</p>
+	  <img src="" id="foto">
+	  <input type="text" name="caption" value="">
+	  <button class="button">Upload</button>
+	</form>
 </div>
-<% include ../partials/footer %>
 <script src="/js/script.js"></script>
+<% include ../partials/footer %>

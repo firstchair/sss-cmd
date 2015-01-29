@@ -1,18 +1,9 @@
-.{
-		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 24px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 200;
-	line-height: 26.3999996185303px;
-}
-
 body {
 	height: 100%;
 }
 
 h1{
-		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
@@ -20,8 +11,19 @@ h1{
 	line-height: 26.3999996185303px;
 }
 
+#welcome{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	display: inline;
+	margin-right: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 200;
+	line-height: 26.3999996185303px;
+}
+
 p{
-		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 12px;
 	font-style: normal;
 	font-variant: normal;
@@ -35,10 +37,20 @@ ol{
 	list-style-type: none;
 }
 
+#comment{
+	padding: 0 500px 0 500px;
+}
+
+#comment li{
+	padding: 20px; 
+	border: 1px solid lightgrey;
+}
+
 #foto{
 	max-width: 500px;
 	max-height: 500px;
 	margin-left: -50px;
+	margin-bottom: 30px;
 }
 
 #option{
@@ -55,9 +67,9 @@ ol{
     margin-left: auto;
     margin-right: auto;
     border: 7px solid white;
-border-radius: 2px;
--moz-border-radius: 2px;
--webkit-border-radius: 2px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
 }
 
 
@@ -80,85 +92,80 @@ border-radius: 2px;
 }
 
 #menu > #option{
-background-color: transparent;
-color: #008ed3;
-border-width: 0;
-height: 64px;
-margin: 0;
-padding: 0;
-text-indent: 32px;
-font-size: 18px;
-font-weight: 200;
-outline: none;
+	background-color: transparent;
+	color: #008ed3;
+	border-width: 0;
+	height: 64px;
+	margin: 0;
+	margin-right: 6.5%;
+	padding: 0;
+	text-indent: 32px;
+	font-size: 18px;
+	font-weight: 200;
+	outline: none;
 }
 
 #menu > #option > a{
-background-color: transparent;
-color: #008ed3;
-border-width: 0;
-height: 74px;
-margin: 0;
-padding: 0;
-text-indent: 32px;
-font-size: 18px;
-font-weight: 200;
-outline: none;
-text-decoration: none
+	background-color: transparent;
+	color: #008ed3;
+	border-width: 0;
+	height: 74px;
+	margin: 0;
+	padding: 0;
+	text-indent: 32px;
+	font-size: 18px;
+	font-weight: 200;
+	outline: none;
+	text-decoration: none
 }
 
 .button {
-
 	cursor:pointer;
-
-display: inline-block;
-border-color: #008ed3;
-border:1px solid;
-font-weight: 200;
-color: #008ed3;
-background-color: transparent;
-padding:10px 20px;
+	display: inline-block;
+	border-color: #008ed3;
+	border:1px solid;
+	font-weight: 200;
+	color: #008ed3;
+	background-color: transparent;
+	padding:10px 20px;
 	text-decoration:none;
-		-moz-border-radius:28px;
+	-moz-border-radius:28px;
 	-webkit-border-radius:28px;
 	border-radius:5px;
 }
 
 .buttonwhite {
-margin-top: 20px;
+	margin-top: 20px;
 	cursor:pointer;
 	width: 400px;
-
-display: inline-block;
-border-color: white;
-border:1px solid;
-font-weight: 200;
-color: white;
-font-size: 20px;
-
-background-color: rgba(0,142,211,0.1);
-padding:10px 20px;
+	display: inline-block;
+	border-color: white;
+	border:1px solid;
+	font-weight: 200;
+	color: white;
+	font-size: 20px;
+	background-color: rgba(0,142,211,0.1);
+	padding:10px 20px;
 	text-decoration:none;
-		-moz-border-radius:28px;
+	-moz-border-radius:28px;
 	-webkit-border-radius:28px;
 	border-radius:5px;
 }
 
 .buttonwhite2 {
-margin-top: 20px;
+	margin-top: 20px;
 	cursor:pointer;
 	width: 250px;
-
-display: inline-block;
-border-color: white;
-border:1px solid;
-font-weight: 200;
-color: white;
-font-size: 20px;
-
-background-color: rgba(0,142,211,0.1);
-padding:10px 20px;
+	display: inline-block;
+	border-color: white;
+	border:1px solid;
+	font-weight: 200;
+	color: white;
+	font-size: 20px;
+	background-color: rgba(0,142,211,0.1);
+	padding:10px 20px;
 	text-decoration:none;
-		-moz-border-radius:28px;
+	-moz-border-radius:28px;
 	-webkit-border-radius:28px;
 	border-radius:5px;
 }
@@ -213,9 +220,9 @@ padding:10px 20px;
 	margin-bottom: 10px;
 	width: 100%;
 	box-sizing: border-box;
-	font-family: montserrat;
 	color: #2C3E50;
 	font-size: 13px;
+	text-align: center;
 }
 /*buttons*/
 #msform .action-button {
@@ -247,7 +254,7 @@ padding:10px 20px;
 }
 
 .center {
-	   margin-left: auto;
+	  margin-left: auto;
 }
 
 .max {
@@ -256,10 +263,6 @@ padding:10px 20px;
 
 #main {
 	top: 50px;
-}
-
-#login {
-	
 }
 
 #camera {
@@ -272,36 +275,33 @@ padding:10px 20px;
 	float:left;
 	color: black;
 	top:15px;
-	margin: 20px 0 0 1%;
+	margin: 20px 0 0 -8.5%;
+}
+
+#bg{
+	content: "";
+  	background-image: url("/images/bg.jpg");
+	opacity: 0.8;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
 }
 
 
-#bg {
-			content: "";
-		  background-image: url("/bg.jpg");
-			opacity: 0.8;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-
-			position: absolute;
-			z-index: -1;
-		}
-
-
-#bg2 {
-			content: "";
-		  background-image: url("/bg2.jpg");
-			opacity: 0.8;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-
-			position: absolute;
-			z-index: -1;
-		}
+#bg2{
+	content: "";
+  	background-image: url("/images/bg2.jpg");
+	opacity: 0.8;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
 
 label > h1, form > h1  {
 	color: white;
@@ -313,7 +313,7 @@ label > h1, form > h1  {
 }
 
 #register > h1 {
-			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:white;
 	font-size: 40px;
 	font-weight: 100;
@@ -326,10 +326,10 @@ label > h1, form > h1  {
 
 #frame > a {
 	margin-left:1%;
-			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:black;
 	font-size: 20px;
-		text-decoration:none;
+	text-decoration:none;
 	font-weight: 100;
 	text-align: center;
 }
